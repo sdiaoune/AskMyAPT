@@ -4,9 +4,12 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'AskMyAPT - AI Assistant for Apartment Communities',
+  description: 'AskMyAPT is the AI assistant for apartment communities — it answers questions, books tours, and handles resident requests automatically.',
   generator: 'v0.dev',
+  icons: {
+    icon: '/AskMyAPTLogo.ico',
+  },
 }
 
 export default function RootLayout({

@@ -122,7 +122,10 @@ export default function AskMyAPTLanding() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <span className="text-2xl font-bold text-indigo-600">AskMyAPT</span>
+                <div className="flex items-center">
+                  <img src="/AskMyAPTLogo.ico" alt="AskMyAPT Logo" className="w-8 h-8 mr-2" />
+                  <span className="text-2xl font-bold text-indigo-600">AskMyAPT</span>
+                </div>
               </div>
             </div>
 
@@ -508,7 +511,10 @@ export default function AskMyAPTLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <span className="text-2xl font-bold text-indigo-600">AskMyAPT</span>
+              <div className="flex items-center">
+                <img src="/AskMyAPTLogo.ico" alt="AskMyAPT Logo" className="w-8 h-8 mr-2" />
+                <span className="text-2xl font-bold text-indigo-600">AskMyAPT</span>
+              </div>
             </div>
 
             <div className="flex space-x-6 mb-4 md:mb-0">

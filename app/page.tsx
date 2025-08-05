@@ -21,10 +21,10 @@ import {
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
-export default function LeazlyLanding() {
+export default function AskMyAPTLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [chatMessages, setChatMessages] = useState([
-    { type: "bot", message: "Hi! I'm Leazly. How can I help you today?" },
+    { type: "bot", message: "Hi! I'm AskMyAPT. How can I help you today?" },
     { type: "user", message: "Do you allow pets?" },
     {
       type: "bot",
@@ -122,7 +122,7 @@ export default function LeazlyLanding() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <span className="text-2xl font-bold text-indigo-600">Leazly</span>
+                <span className="text-2xl font-bold text-indigo-600">AskMyAPT</span>
               </div>
             </div>
 
@@ -157,7 +157,7 @@ export default function LeazlyLanding() {
                 Lease 24/7 with AI. <span className="text-indigo-600">No missed leads.</span> No wasted staff time.
               </h1>
               <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-                Leazly is the AI assistant for apartment communities — it answers questions, books tours, and handles
+                AskMyAPT is the AI assistant for apartment communities — it answers questions, books tours, and handles
                 resident requests automatically.
               </p>
               <div className="mt-8">
@@ -177,7 +177,7 @@ export default function LeazlyLanding() {
                   <div className="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center">
                     <Bot className="w-4 h-4 text-white" />
                   </div>
-                  <span className="font-semibold text-zinc-900">Leazly Assistant</span>
+                  <span className="font-semibold text-zinc-900">AskMyAPT Assistant</span>
                   <div className="ml-auto w-3 h-3 bg-emerald-500 rounded-full"></div>
                 </div>
                 <div className="space-y-3">
@@ -237,7 +237,7 @@ export default function LeazlyLanding() {
 
             <div className="mt-12 p-8 bg-indigo-50 rounded-2xl">
               <p className="text-xl text-zinc-700">
-                <strong className="text-indigo-600">Leazly handles leasing, support, and tours</strong> — so your team
+                <strong className="text-indigo-600">AskMyAPT handles leasing, support, and tours</strong> — so your team
                 can focus on closing.
               </p>
             </div>
@@ -266,7 +266,7 @@ export default function LeazlyLanding() {
               <div className="w-20 h-20 bg-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 mb-4">Leazly answers questions or books a tour</h3>
+              <h3 className="text-xl font-semibold text-zinc-900 mb-4">AskMyAPT answers questions or books a tour</h3>
               <p className="text-zinc-600">AI handles inquiries and schedules appointments automatically</p>
             </div>
 
@@ -325,7 +325,7 @@ export default function LeazlyLanding() {
                   ))}
                 </div>
                 <p className="text-lg text-zinc-700 mb-6">
-                  "We saved 40+ hours per month and doubled weekend tour bookings. Leazly handles everything while we
+                  "We saved 40+ hours per month and doubled weekend tour bookings. AskMyAPT handles everything while we
                   sleep!"
                 </p>
                 <div className="flex items-center">
@@ -423,7 +423,7 @@ export default function LeazlyLanding() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">Try Leazly now</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">Try AskMyAPT now</h2>
             <p className="text-xl text-zinc-600">See how natural and helpful our AI assistant is</p>
           </div>
 
@@ -431,7 +431,7 @@ export default function LeazlyLanding() {
             <CardContent className="p-0">
               <div className="bg-indigo-600 text-white p-4 rounded-t-2xl flex items-center">
                 <Bot className="w-6 h-6 mr-3" />
-                <span className="font-semibold">Leazly Demo</span>
+                <span className="font-semibold">AskMyAPT Demo</span>
                 <div className="ml-auto w-3 h-3 bg-emerald-400 rounded-full"></div>
               </div>
 
@@ -508,7 +508,7 @@ export default function LeazlyLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <span className="text-2xl font-bold text-indigo-600">Leazly</span>
+              <span className="text-2xl font-bold text-indigo-600">AskMyAPT</span>
             </div>
 
             <div className="flex space-x-6 mb-4 md:mb-0">
@@ -528,7 +528,7 @@ export default function LeazlyLanding() {
           </div>
 
           <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-            <p className="text-zinc-500 text-sm">© 2025 Leazly Inc. All rights reserved.</p>
+            <p className="text-zinc-500 text-sm">© 2025 AskMyAPT Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>

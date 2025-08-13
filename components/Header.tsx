@@ -36,7 +36,7 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button className="bg-amber-600 hover:bg-amber-700 text-white">Book Demo</Button>
+          <Button className="bg-amber-600 hover:bg-amber-700 text-white" data-cta="header-primary">Book a demo</Button>
         </div>
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
@@ -63,8 +63,8 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                <Button className="bg-amber-600 hover:bg-amber-700 text-white" onClick={() => setOpen(false)}>
-                  Book Demo
+                <Button className="bg-amber-600 hover:bg-amber-700 text-white" onClick={() => setOpen(false)} data-cta="header-primary">
+                  Book a demo
                 </Button>
               </div>
             </SheetContent>

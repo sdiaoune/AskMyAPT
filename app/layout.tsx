@@ -7,23 +7,23 @@ import { Footer } from "@/components/Footer"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "AskMyAPT - AI Assistant for Apartment Communities",
+  title: "AskMyAPT — AI Leasing Coordinator that Books Tours 24/7",
   description:
-    "AskMyAPT is the AI assistant for apartment communities — it answers questions, books tours, and handles resident requests automatically.",
+    "Capture every lead, reply instantly, and book tours 24/7. AskMyAPT connects to your CRM/PMS, reduces busywork, and helps property teams fill units faster.",
   alternates: { canonical: "https://askmyapt.com" },
   openGraph: {
-    title: "AskMyAPT - AI Assistant for Apartment Communities",
+    title: "AskMyAPT — AI Leasing Coordinator that Books Tours 24/7",
     description:
-      "AskMyAPT is the AI assistant for apartment communities — it answers questions, books tours, and handles resident requests automatically.",
+      "Capture every lead, reply instantly, and book tours 24/7. AskMyAPT connects to your CRM/PMS, reduces busywork, and helps property teams fill units faster.",
     url: "https://askmyapt.com",
     siteName: "AskMyAPT",
     images: [{ url: "/og.svg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AskMyAPT - AI Assistant for Apartment Communities",
+    title: "AskMyAPT — AI Leasing Coordinator that Books Tours 24/7",
     description:
-      "AskMyAPT is the AI assistant for apartment communities — it answers questions, books tours, and handles resident requests automatically.",
+      "Capture every lead, reply instantly, and book tours 24/7. AskMyAPT connects to your CRM/PMS, reduces busywork, and helps property teams fill units faster.",
     images: ["/og.svg"],
   },
   icons: {

@@ -7,7 +7,6 @@ import {
   Clock,
   Users,
   BarChart3,
-  Zap,
   Globe,
   CheckCircle,
   Star,
@@ -15,52 +14,54 @@ import {
   Bot,
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ChatDemo } from "@/components/ChatDemo"
 import { IntegrationsStrip } from "@/components/IntegrationsStrip"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export default function AskMyAPTLanding() {
   const features = [
     {
       icon: MessageCircle,
-      title: "24/7 Leasing Chatbot",
-      description: "Never miss a lead with AI that works around the clock",
+      title: "Instant replies, 24/7",
+      description: "Capture every after-hours lead automatically.",
     },
     {
       icon: Calendar,
-      title: "Tour Booking Integration",
-      description: "Seamlessly schedule and manage property tours",
-    },
-    {
-      icon: Zap,
-      title: "Maintenance Requests",
-      description: "Handle resident maintenance requests automatically",
-    },
-    {
-      icon: Globe,
-      title: "Multilingual Support",
-      description: "Communicate with prospects in multiple languages",
-    },
-    {
-      icon: Users,
-      title: "Live Chat Escalation",
-      description: "Smooth handoff to human agents when needed",
-    },
-    {
-      icon: BarChart3,
-      title: "Analytics Dashboard",
-      description: "Track performance and optimize your leasing process",
-    },
-    {
-      icon: Database,
-      title: "CRM/PMS Integrations",
-      description: "Sync with your existing property management tools",
+      title: "Tour booking that sticks",
+      description: "Real-time scheduling reduces no-shows.",
     },
     {
       icon: CheckCircle,
-      title: "Resident Support",
-      description: "Provide ongoing support for current residents",
+      title: "Resident support that scales",
+      description: "From FAQs to maintenance intake, without tickets piling up.",
+    },
+    {
+      icon: Globe,
+      title: "Multilingual by default",
+      description: "Welcome prospects in their language.",
+    },
+    {
+      icon: Users,
+      title: "Live handoff when it matters",
+      description: "Escalate to your team in one click.",
+    },
+    {
+      icon: BarChart3,
+      title: "Analytics you can act on",
+      description: "See tours booked, first-response times, and conversion by channel.",
+    },
+    {
+      icon: Database,
+      title: "CRM/PMS sync",
+      description: "Push leads and tours to your existing systems.",
     },
   ]
 
@@ -108,19 +109,30 @@ export default function AskMyAPTLanding() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 leading-tight">
-                Lease 24/7 with AI. <span className="text-indigo-600">No missed leads.</span> No wasted staff time.
+                Fill units faster—while your team sleeps.
               </h1>
               <p className="mt-6 text-xl text-zinc-600 leading-relaxed">
-                AskMyAPT is the AI assistant for apartment communities — it answers questions, books tours, and handles resident requests automatically.
+                AskMyAPT replies instantly, books tours, and handles resident requests—24/7—so your team can focus on closing.
               </p>
               <div className="mt-8">
                 <Button
                   size="lg"
                   className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  data-cta="hero-primary"
                 >
-                  Book Demo
+                  Book a demo
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Button>
+                <div className="mt-4">
+                  <Button
+                    size="lg"
+                    className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                    data-cta="hero-secondary"
+                  >
+                    Watch a 2-min demo
+                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                  </Button>
+                </div>
               </div>
             </div>
 
@@ -151,6 +163,24 @@ export default function AskMyAPTLanding() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Proof Strip */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <p className="font-semibold text-zinc-900">Tours booked (last 30 days): 48</p>
+            </div>
+            <div>
+              <p className="font-semibold text-zinc-900">Median response time: &lt;60s</p>
+            </div>
+            <div>
+              <p className="font-semibold text-zinc-900">Staff hours saved/month: 41</p>
+            </div>
+          </div>
+          <p className="mt-4 text-center text-sm text-zinc-600">Pilot averages; results vary.</p>
         </div>
       </section>
 
@@ -201,7 +231,7 @@ export default function AskMyAPTLanding() {
       <section id="how-it-works" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">How It Works</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">How it works</h2>
             <p className="text-xl text-zinc-600">Simple setup, powerful results</p>
           </div>
 
@@ -210,24 +240,24 @@ export default function AskMyAPTLanding() {
               <div className="w-20 h-20 bg-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 mb-4">Website visitor opens chat</h3>
-              <p className="text-zinc-600">Prospects engage with your AI assistant instantly on your website</p>
+              <h3 className="text-xl font-semibold text-zinc-900 mb-4">Install in minutes</h3>
+              <p className="text-zinc-600">Add one snippet to your site.</p>
             </div>
 
             <div className="text-center">
               <div className="w-20 h-20 bg-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 mb-4">AskMyAPT answers questions or books a tour</h3>
-              <p className="text-zinc-600">AI handles inquiries and schedules appointments automatically</p>
+              <h3 className="text-xl font-semibold text-zinc-900 mb-4">Connect your systems</h3>
+              <p className="text-zinc-600">Sync availability, pricing, and policies with your CRM/PMS.</p>
             </div>
 
             <div className="text-center">
               <div className="w-20 h-20 bg-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold text-white">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-zinc-900 mb-4">Data syncs to your CRM or PMS</h3>
-              <p className="text-zinc-600">All interactions and leads flow seamlessly into your existing systems</p>
+              <h3 className="text-xl font-semibold text-zinc-900 mb-4">Go live</h3>
+              <p className="text-zinc-600">Capture every lead; we’ll tune replies to your buildings and brand.</p>
             </div>
           </div>
         </div>
@@ -238,7 +268,7 @@ export default function AskMyAPTLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">
-              Everything you need in one AI assistant
+              What you get
             </h2>
             <p className="text-xl text-zinc-600">Comprehensive leasing automation for modern properties</p>
           </div>
@@ -264,11 +294,11 @@ export default function AskMyAPTLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">
-              Trusted by property managers nationwide
+              Teams like yours are closing more
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="max-w-md mx-auto">
             <Card className="border-0 shadow-lg rounded-2xl">
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
@@ -277,13 +307,13 @@ export default function AskMyAPTLanding() {
                   ))}
                 </div>
                 <p className="text-lg text-zinc-700 mb-6">
-                  "We saved 40+ hours per month and doubled weekend tour bookings. AskMyAPT handles everything while we sleep!"
+                  "Weekend tours doubled, and our team got their evenings back."
                 </p>
-                <p className="text-xs text-zinc-500 mb-4">Sample quote</p>
+                <p className="text-sm text-zinc-600 mb-6">+35% lead-to-tour rate • 41 hours saved/month</p>
                 <div className="flex items-center">
                   <Image
                     src="/placeholder-user.jpg"
-                    alt="Sarah Chen"
+                    alt="Photo of Sarah Chen"
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full mr-4"
@@ -291,33 +321,6 @@ export default function AskMyAPTLanding() {
                   <div>
                     <p className="font-semibold text-zinc-900">Sarah Chen</p>
                     <p className="text-zinc-600">Property Manager, Sunset Apartments</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-lg rounded-2xl">
-              <CardContent className="p-8">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-amber-500 fill-current" aria-hidden="true" />
-                  ))}
-                </div>
-                <p className="text-lg text-zinc-700 mb-6">
-                  "Our conversion rate increased by 35% in the first month. The AI is so natural, prospects love chatting with it."
-                </p>
-                <p className="text-xs text-zinc-500 mb-4">Sample quote</p>
-                <div className="flex items-center">
-                  <Image
-                    src="/placeholder-user.jpg"
-                    alt="Mike Rodriguez"
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <p className="font-semibold text-zinc-900">Mike Rodriguez</p>
-                    <p className="text-zinc-600">Leasing Director, Metro Properties</p>
                   </div>
                 </div>
               </CardContent>
@@ -331,10 +334,15 @@ export default function AskMyAPTLanding() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">
-              Simple pricing that scales with your properties
+              Simple, transparent pricing
             </h2>
-            <p className="text-xl text-zinc-600">Choose the plan that fits your portfolio</p>
+            <p className="text-xl text-zinc-600">Per-community pricing with unit caps.</p>
           </div>
+
+          <ul className="text-center mb-8">
+            <li className="text-zinc-700">All plans include 24/7 chat, tour booking, and email support.</li>
+            <li className="text-zinc-700">No long-term contracts. Cancel anytime.</li>
+          </ul>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pricingPlans.map((plan, index) => (
@@ -363,13 +371,30 @@ export default function AskMyAPTLanding() {
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full rounded-2xl ${plan.popular ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-900 hover:bg-gray-800"} text-white`}>
-                    See Plan Details
+                  <Button className={`w-full rounded-2xl ${plan.popular ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-900 hover:bg-gray-800"} text-white`} data-cta="pricing-primary">
+                    Book a demo
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+          <div className="mt-8">
+            <Accordion type="single" collapsible>
+              <AccordionItem value="item-1">
+                <AccordionTrigger>What’s included</AccordionTrigger>
+                <AccordionContent>
+                  <ul className="space-y-3">
+                    <li><strong>Starter:</strong> 24/7 chat, basic FAQs, tour booking</li>
+                    <li><strong>Growth:</strong> Everything in Starter + advanced AI replies, CRM sync, analytics</li>
+                    <li><strong>Pro:</strong> Everything in Growth + white-label, custom integrations, dedicated support</li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+
+          <p className="mt-8 text-center text-zinc-700">Have more units or special requirements? Talk to us for a custom plan.</p>
         </div>
       </section>
 
@@ -389,7 +414,7 @@ export default function AskMyAPTLanding() {
       <section id="integrations" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">Works with the tools you already use</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4">Works with your stack</h2>
             <p className="text-xl text-zinc-600">Seamless integration with popular property management systems</p>
           </div>
 
@@ -397,18 +422,46 @@ export default function AskMyAPTLanding() {
         </div>
       </section>
 
+      {/* Risk & Trust */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-6 text-center">Built for multifamily, ready for compliance</h2>
+          <ul className="space-y-4 text-zinc-700">
+            <li>Fair Housing-aware replies with human oversight</li>
+            <li>Encryption in transit & at rest</li>
+            <li>SSO and audit logging available</li>
+          </ul>
+          <div className="mt-8 text-center">
+            <Link href="/security" className="text-indigo-600 font-semibold">See Security →</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section id="contact" className="py-20 bg-indigo-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Ready to automate leasing?</h2>
-          <p className="text-xl text-indigo-100 mb-8">It only takes 15 minutes to see the magic.</p>
-          <Button
-            size="lg"
-            className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Book Your Demo
-            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-          </Button>
+          <p className="text-xl text-indigo-100 mb-8">It only takes 15 minutes to see it in action.</p>
+          <div>
+            <Button
+              size="lg"
+              className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              data-cta="closing-primary"
+            >
+              Book a demo
+              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+            </Button>
+            <div className="mt-4">
+              <Button
+                size="lg"
+                className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                data-cta="closing-secondary"
+              >
+                Watch a 2-min demo
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

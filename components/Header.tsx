@@ -35,9 +35,17 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:block">
-          <Button className="bg-amber-600 hover:bg-amber-700 text-white" data-cta="header-primary">Book a demo</Button>
-        </div>
+          <div className="hidden md:block">
+            <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white" data-cta="header-primary">
+              <Link
+                href="https://calendly.com/soya-myhoneybot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a demo
+              </Link>
+            </Button>
+          </div>
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -63,9 +71,20 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                <Button className="bg-amber-600 hover:bg-amber-700 text-white" onClick={() => setOpen(false)} data-cta="header-primary">
-                  Book a demo
-                </Button>
+                  <Button
+                    asChild
+                    className="bg-amber-600 hover:bg-amber-700 text-white"
+                    data-cta="header-primary"
+                  >
+                    <Link
+                      href="https://calendly.com/soya-myhoneybot"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                    >
+                      Book a demo
+                    </Link>
+                  </Button>
               </div>
             </SheetContent>
           </Sheet>

@@ -12,6 +12,9 @@ import {
   Star,
   ArrowRight,
   Bot,
+  Scale,
+  Lock,
+  Key,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -116,12 +119,19 @@ export default function AskMyAPTLanding() {
               </p>
               <div className="mt-8">
                 <Button
+                  asChild
                   size="lg"
                   className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                   data-cta="hero-primary"
                 >
-                  Book a demo
-                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                  <Link
+                    href="https://calendly.com/soya-myhoneybot"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book a demo
+                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -343,8 +353,18 @@ export default function AskMyAPTLanding() {
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full rounded-2xl ${plan.popular ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-900 hover:bg-gray-800"} text-white`} data-cta="pricing-primary">
-                    Book a demo
+                  <Button
+                    asChild
+                    className={`w-full rounded-2xl ${plan.popular ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-900 hover:bg-gray-800"} text-white`}
+                    data-cta="pricing-primary"
+                  >
+                    <Link
+                      href="https://calendly.com/soya-myhoneybot"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Book a demo
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -396,13 +416,22 @@ export default function AskMyAPTLanding() {
 
       {/* Risk & Trust */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-6 text-center">Built for multifamily, ready for compliance</h2>
-          <ul className="space-y-4 text-zinc-700">
-            <li>Fair Housing-aware replies with human oversight</li>
-            <li>Encryption in transit & at rest</li>
-            <li>SSO and audit logging available</li>
-          </ul>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-10 text-center">Built for multifamily, ready for compliance</h2>
+          <div className="grid gap-8 sm:grid-cols-3">
+            <div className="flex flex-col items-center text-center">
+              <Scale className="h-12 w-12 text-indigo-600 mb-4" />
+              <p className="text-zinc-700">Fair Housing-aware replies with human oversight</p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <Lock className="h-12 w-12 text-indigo-600 mb-4" />
+              <p className="text-zinc-700">Encryption in transit & at rest</p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <Key className="h-12 w-12 text-indigo-600 mb-4" />
+              <p className="text-zinc-700">SSO and audit logging available</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -412,15 +441,22 @@ export default function AskMyAPTLanding() {
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Ready to automate leasing?</h2>
           <p className="text-xl text-indigo-100 mb-8">It only takes 15 minutes to see it in action.</p>
           <div>
-          <Button
-            size="lg"
-            className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-            data-cta="closing-primary"
-          >
-            Book a demo
-            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-          </Button>
-        </div>
+            <Button
+              asChild
+              size="lg"
+              className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              data-cta="closing-primary"
+            >
+              <Link
+                href="https://calendly.com/soya-myhoneybot"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a demo
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+              </Link>
+            </Button>
+          </div>
       </div>
     </section>
   </div>

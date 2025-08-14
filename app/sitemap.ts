@@ -10,5 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://askmyapt.com/contact",
       lastModified: new Date(),
     },
+    {
+      url: "https://askmyapt.com/terms",
+      lastModified: new Date(),
+    },
+    {
+      url: "https://askmyapt.com/privacy",
+      lastModified: new Date(),
+    },
   ]
 }

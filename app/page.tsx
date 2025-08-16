@@ -15,6 +15,7 @@ import {
   Scale,
   Lock,
   Key,
+  Info,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -28,6 +29,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip"
+import { Switch } from "@/components/ui/switch"
+import { useState } from "react"
 
 export default function AskMyAPTLanding() {
   const features = [
@@ -71,38 +75,81 @@ export default function AskMyAPTLanding() {
   const pricingPlans = [
     {
       name: "Starter",
-      price: "$99",
-      period: "/month",
-      features: ["Up to 50 units", "Basic chatbot", "Tour booking", "Email support"],
+      priceMonthly: 99,
+      units: "Up to 50 units",
+      usage: { web: "1,000", sms: "400", voice: "60" },
+      features: [
+        "24/7 leasing chatbot (web)",
+        "lead capture",
+        "basic tour booking",
+        "email support",
+        "analytics lite",
+      ],
       popular: false,
     },
     {
       name: "Growth",
-      price: "$299",
-      period: "/month",
+      priceMonthly: 299,
+      units: "Up to 200 units",
+      usage: { web: "4,000", sms: "2,000", voice: "200" },
       features: [
-        "Up to 200 units",
-        "Advanced AI features",
-        "CRM integrations",
-        "Analytics dashboard",
-        "Priority support",
+        "Everything in Starter + SMS chat",
+        "calendar integration for tours",
+        "CRM/PMS integrations (AppFolio/Buildium/Yardi—standard connectors)",
+        "priority support",
+        "full analytics",
       ],
       popular: true,
     },
     {
       name: "Pro",
-      price: "$799",
-      period: "/month+",
+      priceMonthly: 799,
+      units: "Up to 1,000 units",
+      usage: { web: "15,000", sms: "8,000", voice: "800" },
       features: [
-        "Unlimited units",
-        "Custom integrations",
-        "White-label options",
-        "Dedicated support",
-        "Custom training",
+        "Everything in Growth + advanced integrations/workflows",
+        "custom reporting",
+        "SSO (optional)",
+        "SLA support",
+      ],
+      popular: false,
+    },
+    {
+      name: "Custom",
+      priceMonthly: null,
+      units: "1,000+ units or special requirements",
+      usage: null,
+      features: [
+        "Tailored usage bundles and enterprise terms (MSA, security review, premium SLA)",
       ],
       popular: false,
     },
   ]
+
+  const faqs = [
+    {
+      q: "What happens if I exceed my included usage?",
+      a: "We’ll keep everything running. Overages are billed at $0.015/SMS segment and $0.02/voice minute. Web chat overage is currently included at no extra cost.",
+    },
+    {
+      q: "Can I bring my own Twilio?",
+      a: "Yes; enterprise customers can connect their own numbers. Contact Sales.",
+    },
+    {
+      q: "Which property systems do you integrate with?",
+      a: "AppFolio, Buildium, and Yardi via standard connectors on Growth and above.",
+    },
+    {
+      q: "Which AI model do you use?",
+      a: "We optimize for low latency and high accuracy using modern GPT-class models.",
+    },
+    {
+      q: "Is there an annual discount?",
+      a: "Yes, 2 months free when paid annually.",
+    },
+  ]
+
+  const [isAnnual, setIsAnnual] = useState(false)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -325,8 +372,17 @@ export default function AskMyAPTLanding() {
             <li className="text-zinc-700">All plans include 24/7 chat, tour booking, and email support.</li>
             <li className="text-zinc-700">No long-term contracts. Cancel anytime.</li>
           </ul>
+          <div className="flex items-center justify-center mb-8">
+            <span className={`mr-2 text-sm font-medium ${!isAnnual ? "text-zinc-900" : "text-zinc-600"}`}>Monthly</span>
+            <Switch
+              aria-label="Toggle annual billing"
+              checked={isAnnual}
+              onCheckedChange={setIsAnnual}
+            />
+            <span className={`ml-2 text-sm font-medium ${isAnnual ? "text-zinc-900" : "text-zinc-600"}`}>Annual</span>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {pricingPlans.map((plan, index) => (
               <Card
                 key={index}
@@ -340,11 +396,65 @@ export default function AskMyAPTLanding() {
                   </div>
                 )}
                 <CardContent className="p-8 text-center">
-                  <h3 className="text-2xl font-bold text-zinc-900 mb-4">{plan.name}</h3>
-                  <div className="mb-6">
-                    <span className="text-4xl font-bold text-zinc-900">{plan.price}</span>
-                    <span className="text-zinc-600">{plan.period}</span>
+                  <h3 className="text-2xl font-bold text-zinc-900 mb-1">{plan.name}</h3>
+                  <p className="text-sm text-zinc-600 mb-4">{plan.units}</p>
+                  <div className="mb-4">
+                    {plan.priceMonthly ? (
+                      isAnnual ? (
+                        <>
+                          <span className="text-4xl font-bold text-zinc-900">
+                            ${Math.round((plan.priceMonthly * 10) / 12)}
+                          </span>
+                          <span className="text-zinc-600">/mo</span>
+                          <span className="ml-2 text-sm text-zinc-500 line-through">
+                            ${plan.priceMonthly}
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-4xl font-bold text-zinc-900">
+                            ${plan.priceMonthly}
+                          </span>
+                          <span className="text-zinc-600">/mo</span>
+                        </>
+                      )
+                    ) : (
+                      <span className="text-4xl font-bold text-zinc-900">Contact Sales</span>
+                    )}
                   </div>
+                  {plan.usage ? (
+                    <>
+                      <p className="text-sm text-zinc-600 mb-2">
+                        What's included monthly: {plan.usage.web} web chat messages, {plan.usage.sms}
+                        <span className="inline-flex items-center">
+                          &nbsp;SMS segments
+                          <TooltipProvider delayDuration={0}>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <button
+                                  type="button"
+                                  aria-label="SMS segment info"
+                                  className="ml-1 inline-flex items-center justify-center w-4 h-4 text-zinc-600"
+                                >
+                                  <Info className="w-4 h-4" />
+                                </button>
+                              </TooltipTrigger>
+                              <TooltipContent className="text-xs">
+                                1 SMS segment ≈ 160 characters. Long messages are split into multiple segments.
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </span>, {plan.usage.voice} voice minutes
+                      </p>
+                      <p className="text-sm text-zinc-600 mb-4">
+                        Overage: $0.015 per SMS segment, $0.02 per voice minute
+                      </p>
+                    </>
+                  ) : (
+                    <p className="text-sm text-zinc-600 mb-4">
+                      What's included monthly: Tailored usage bundles
+                    </p>
+                  )}
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center justify-center">
@@ -371,22 +481,53 @@ export default function AskMyAPTLanding() {
             ))}
           </div>
 
-          <div className="mt-8">
-            <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger>What’s included</AccordionTrigger>
-                <AccordionContent>
-                  <ul className="space-y-3">
-                    <li><strong>Starter:</strong> 24/7 chat, basic FAQs, tour booking</li>
-                    <li><strong>Growth:</strong> Everything in Starter + advanced AI replies, CRM sync, analytics</li>
-                    <li><strong>Pro:</strong> Everything in Growth + white-label, custom integrations, dedicated support</li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+          <div className="mt-8 text-xs text-zinc-600 space-y-2">
+            <p>
+              Fair Use Policy: Included monthly usage (web chat messages, SMS segments, and voice minutes) resets each billing
+              cycle. Overage is billed at month-end at posted rates. SMS pricing applies to US A2P 10DLC; international messaging
+              may incur different pass-through carrier fees. Voice minutes are rounded to the nearest minute. Abuse (spam, non-leasing
+              use) may be throttled or suspended.
+            </p>
+            <p>
+              Definitions: A ‘message’ is a single AI response or user input in web chat. An ‘SMS segment’ is ~160 characters; longer
+              texts count as multiple segments.
+            </p>
           </div>
 
-          <p className="mt-8 text-center text-zinc-700">Have more units or special requirements? Talk to us for a custom plan.</p>
+          <div className="mt-8">
+            <Accordion type="single" collapsible>
+              {faqs.map((item, idx) => (
+                <AccordionItem value={`faq-${idx}`} key={idx}>
+                  <AccordionTrigger>{item.q}</AccordionTrigger>
+                  <AccordionContent>{item.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
+      {/* Transparent Feature List */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4 text-center">
+            What’s included in every plan
+          </h2>
+          <ul className="text-zinc-700 space-y-2 mb-6">
+            <li>AI leasing assistant on your site (web chat)</li>
+            <li>Lead capture + email notifications</li>
+            <li>Tour scheduling with calendar sync</li>
+            <li>Basic knowledge base/Q&amp;A (property info, amenities, policies)</li>
+            <li>Analytics dashboard (conversations, leads, tours)</li>
+            <li>Data export (CSV)</li>
+            <li>Secure hosting &amp; automatic updates</li>
+          </ul>
+          <p className="text-zinc-700 mb-2">
+            <strong>Growth &amp; Pro add:</strong> SMS chat, CRM/PMS integrations, priority support, deeper analytics.
+          </p>
+          <p className="text-zinc-700">
+            <strong>Pro &amp; Custom add:</strong> advanced workflows, SSO (optional), SLA.
+          </p>
         </div>
       </section>
 

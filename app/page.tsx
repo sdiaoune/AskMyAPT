@@ -403,7 +403,7 @@ export default function AskMyAPTLanding() {
                       isAnnual ? (
                         <>
                           <span className="text-4xl font-bold text-zinc-900">
-                            ${Math.round((plan.priceMonthly * 10) / 12)}
+                            ${Math.floor((plan.priceMonthly * 10) / 12)}
                           </span>
                           <span className="text-zinc-600">/mo</span>
                           <span className="ml-2 text-sm text-zinc-500 line-through">

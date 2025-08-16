@@ -467,9 +467,8 @@ export default function AskMyAPTLanding() {
                   )}
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center justify-center">
-                        <CheckCircle className="w-5 h-5 text-emerald-500 mr-2" aria-hidden="true" />
-                        <span className="text-zinc-700">{feature}</span>
+                      <li key={featureIndex} className="text-center text-zinc-700">
+                        {feature}
                       </li>
                     ))}
                   </ul>
@@ -525,10 +524,7 @@ export default function AskMyAPTLanding() {
           </h2>
           <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-zinc-700 mb-6">
             {includedFeatures.map((feature) => (
-              <li key={feature} className="flex items-start gap-2">
-                <CheckCircle className="h-5 w-5 text-emerald-600 mt-1" aria-hidden="true" />
-                <span>{feature}</span>
-              </li>
+              <li key={feature}>{feature}</li>
             ))}
           </ul>
           <div className="mt-8 pt-4 border-t border-zinc-200 text-zinc-700 space-y-2">

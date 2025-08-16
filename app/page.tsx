@@ -149,6 +149,16 @@ export default function AskMyAPTLanding() {
     },
   ]
 
+  const includedFeatures = [
+    "AI leasing assistant on your site (web chat)",
+    "Lead capture + email notifications",
+    "Tour scheduling with calendar sync",
+    "Basic knowledge base/Q&A (property info, amenities, policies)",
+    "Analytics dashboard (conversations, leads, tours)",
+    "Data export (CSV)",
+    "Secure hosting & automatic updates",
+  ]
+
   const [isAnnual, setIsAnnual] = useState(false)
 
   return (
@@ -513,21 +523,22 @@ export default function AskMyAPTLanding() {
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 mb-4 text-center">
             What’s included in every plan
           </h2>
-          <ul className="text-zinc-700 space-y-2 mb-6">
-            <li>AI leasing assistant on your site (web chat)</li>
-            <li>Lead capture + email notifications</li>
-            <li>Tour scheduling with calendar sync</li>
-            <li>Basic knowledge base/Q&amp;A (property info, amenities, policies)</li>
-            <li>Analytics dashboard (conversations, leads, tours)</li>
-            <li>Data export (CSV)</li>
-            <li>Secure hosting &amp; automatic updates</li>
+          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-zinc-700 mb-6">
+            {includedFeatures.map((feature) => (
+              <li key={feature} className="flex items-start gap-2">
+                <CheckCircle className="h-5 w-5 text-emerald-600 mt-1" aria-hidden="true" />
+                <span>{feature}</span>
+              </li>
+            ))}
           </ul>
-          <p className="text-zinc-700 mb-2">
-            <strong>Growth &amp; Pro add:</strong> SMS chat, CRM/PMS integrations, priority support, deeper analytics.
-          </p>
-          <p className="text-zinc-700">
-            <strong>Pro &amp; Custom add:</strong> advanced workflows, SSO (optional), SLA.
-          </p>
+          <div className="mt-8 pt-4 border-t border-zinc-200 text-zinc-700 space-y-2">
+            <p>
+              <strong>Growth &amp; Pro add:</strong> SMS chat, CRM/PMS integrations, priority support, deeper analytics.
+            </p>
+            <p>
+              <strong>Pro &amp; Custom add:</strong> advanced workflows, SSO (optional), SLA.
+            </p>
+          </div>
         </div>
       </section>
 

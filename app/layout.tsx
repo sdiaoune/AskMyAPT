@@ -95,6 +95,19 @@ html {
   --font-mono: ${GeistMono.variable};
 }
         `}</style>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17484055351"
+        />
+        <Script id="gtag-init">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-17484055351');
+          `}
+        </Script>
         <Script id="ld-json" type="application/ld+json">
           {JSON.stringify([orgLd, productLd, faqLd])}
         </Script>

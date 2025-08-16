@@ -10,7 +10,7 @@ const faq: Record<string, string> = {
   "Do you allow pets?": "Yes, we're pet-friendly! We welcome cats and dogs with a $300 deposit.",
   "Can I book a tour?": "Absolutely—just let us know a day and time that works for you.",
   "How much is rent?": "Two-bedroom units start at $1,850 per month.",
-  "Do you support other languages?": "Yes, AskMyAPT can chat in over 100 languages.",
+  "Do you support other languages?": "Yes, AskMyAPT supports English, Spanish, and French.",
   "What about after-hours?": "Our assistant responds to leads 24/7, even after your office closes.",
   "How do maintenance requests work?": "Maintenance issues are routed to the right team automatically.",
 }

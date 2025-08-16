@@ -78,7 +78,7 @@ const faqLd = {
       name: "Does AskMyAPT support multiple languages?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "It can chat with prospects in over 100 languages.",
+        text: "It can chat with prospects in English, Spanish, and French.",
       },
     },
   ],

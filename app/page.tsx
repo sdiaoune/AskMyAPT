@@ -53,7 +53,7 @@ export default function AskMyAPTLanding() {
     {
       icon: Globe,
       title: "Multilingual by default",
-      description: "Welcome prospects in their language.",
+      description: "Supports English, Spanish, and French.",
     },
     {
       icon: Users,

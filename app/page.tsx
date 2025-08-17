@@ -181,11 +181,7 @@ export default function AskMyAPTLanding() {
                   className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                   data-cta="hero-primary"
                 >
-                  <Link
-                    href="https://calendly.com/soya-myhoneybot"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="https://calendly.com/soya-myhoneybot">
                     Book a demo
                     <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                   </Link>
@@ -477,11 +473,7 @@ export default function AskMyAPTLanding() {
                     className={`w-full rounded-2xl ${plan.popular ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-900 hover:bg-gray-800"} text-white`}
                     data-cta="pricing-primary"
                   >
-                    <Link
-                      href="https://calendly.com/soya-myhoneybot"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <Link href="https://calendly.com/soya-myhoneybot">
                       Book a demo
                     </Link>
                   </Button>
@@ -595,11 +587,7 @@ export default function AskMyAPTLanding() {
               className="bg-amber-600 hover:bg-amber-700 text-white text-lg px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
               data-cta="closing-primary"
             >
-              <Link
-                href="https://calendly.com/soya-myhoneybot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="https://calendly.com/soya-myhoneybot">
                 Book a demo
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>

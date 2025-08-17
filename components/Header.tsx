@@ -37,11 +37,7 @@ export function Header() {
         </nav>
           <div className="hidden md:block">
             <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white" data-cta="header-primary">
-              <Link
-                href="https://calendly.com/soya-myhoneybot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="https://calendly.com/soya-myhoneybot">
                 Book a demo
               </Link>
             </Button>
@@ -78,8 +74,6 @@ export function Header() {
                   >
                     <Link
                       href="https://calendly.com/soya-myhoneybot"
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => setOpen(false)}
                     >
                       Book a demo

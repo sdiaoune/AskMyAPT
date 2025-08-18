@@ -38,7 +38,7 @@ export function Header() {
           <div className="hidden md:block">
             <Button asChild className="bg-amber-600 hover:bg-amber-700 text-white" data-cta="header-primary">
               <Link href="https://calendly.com/soya-myhoneybot">
-                Book a demo
+                See It in Action
               </Link>
             </Button>
           </div>
@@ -76,7 +76,7 @@ export function Header() {
                       href="https://calendly.com/soya-myhoneybot"
                       onClick={() => setOpen(false)}
                     >
-                      Book a demo
+                      See It in Action
                     </Link>
                   </Button>
               </div>

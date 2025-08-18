@@ -182,7 +182,7 @@ export default function AskMyAPTLanding() {
                   data-cta="hero-primary"
                 >
                   <Link href="https://calendly.com/soya-myhoneybot">
-                    Book a demo
+                    See It in Action
                     <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                   </Link>
                 </Button>
@@ -474,9 +474,9 @@ export default function AskMyAPTLanding() {
                     data-cta="pricing-primary"
                   >
                     <Link href="https://calendly.com/soya-myhoneybot">
-                      Book a demo
+                      See It in Action
                     </Link>
-                  </Button>
+                 </Button>
                 </CardContent>
               </Card>
             ))}
@@ -588,7 +588,7 @@ export default function AskMyAPTLanding() {
               data-cta="closing-primary"
             >
               <Link href="https://calendly.com/soya-myhoneybot">
-                Book a demo
+                See It in Action
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Link>
             </Button>
